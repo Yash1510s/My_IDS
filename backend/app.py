@@ -28,13 +28,16 @@ def load_model():
         # Load the trained model
         model = joblib.load(MODEL_PATH)
         
-        # Create a scaler (you might need to save this separately)
+        # Create a scaler
         scaler = MinMaxScaler()
         
-        # Load sample data to fit scaler
-        df = pd.read_csv(DATA_PATH, nrows=1000)
-        X = df.drop(columns=['Attack Type'])
-        scaler.fit(X)
+        # We dummy fit the scaler with 0s and 1s to avoid requiring the 700MB 
+        # cicids2017.csv file on Render. This makes the transform an identity operation
+        # which is fine for our random data simulation.
+        dummy_data = np.zeros((2, 40))
+        dummy_data[0, :] = 0
+        dummy_data[1, :] = 1
+        scaler.fit(dummy_data)
         
         model_loaded = True
         print("✅ Model loaded successfully!")
