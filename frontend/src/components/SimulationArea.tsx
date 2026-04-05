@@ -23,7 +23,8 @@ export function SimulationArea({ isRunning, adversarial, packetRate, attackRatio
   // Helper to call backend for prediction/ground truth
   async function requestPrediction(isAdversarial) {
     try {
-      const url = isAdversarial ? 'http://localhost:5000/predict_adversarial' : 'http://localhost:5000/predict'
+      const baseUrl = import.meta.env.PROD ? '/_backend' : 'http://localhost:5000'
+      const url = isAdversarial ? `${baseUrl}/predict_adversarial` : `${baseUrl}/predict`
       const method = isAdversarial ? 'POST' : 'GET'
       const body = isAdversarial ? JSON.stringify({ features: generatePacketFeatures() }) : undefined
       
