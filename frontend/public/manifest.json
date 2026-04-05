@@ -1,0 +1,50 @@
+{
+  "name": "IDS Adversarial Simulation",
+  "short_name": "IDS Sim",
+  "description": "Advanced Intrusion Detection System simulation with adversarial attack capabilities",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["security", "education", "simulation"],
+  "screenshots": [
+    {
+      "src": "/screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "features": [
+    "Real-time simulation",
+    "Adversarial attack detection",
+    "Network topology visualization",
+    "Advanced analytics",
+    "Collaborative features"
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
