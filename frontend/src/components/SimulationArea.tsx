@@ -14,14 +14,14 @@ function createPacket() {
   }
 }
 
-export function SimulationArea({ isRunning, adversarial, packetRate, attackRatio, threshold, hardened, onStats }) {
-  const [packets, setPackets] = useState([])
-  const timerRef = useRef(null)
-  const areaRef = useRef(null)
-  const [idsFlash, setIdsFlash] = useState(null)
+export function SimulationArea({ isRunning, adversarial, packetRate, attackRatio, threshold, hardened, onStats }: any) {
+  const [packets, setPackets] = useState<any[]>([])
+  const timerRef = useRef<any>(null)
+  const areaRef = useRef<any>(null)
+  const [idsFlash, setIdsFlash] = useState<any>(null)
 
   // Helper to call backend for prediction/ground truth
-  async function requestPrediction(isAdversarial) {
+  async function requestPrediction(isAdversarial: any) {
     try {
       const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000'
       const url = isAdversarial ? `${baseUrl}/predict_adversarial` : `${baseUrl}/predict`
@@ -96,7 +96,7 @@ export function SimulationArea({ isRunning, adversarial, packetRate, attackRatio
     if (!isRunning) setPackets([])
   }, [isRunning])
 
-  const handleReachIDS = (id) => {
+  const handleReachIDS = (id: any) => {
     const p = packets.find((x) => x.id === id)
     if (!p) return
     // If backend result not ready yet, mark as reached and wait
@@ -165,7 +165,7 @@ export function SimulationArea({ isRunning, adversarial, packetRate, attackRatio
               y={y}
               containerWidth={containerWidth}
               onReachIDS={handleReachIDS}
-              onExit={(id) => setPackets((prev) => prev.filter((x) => x.id !== id))}
+              onExit={(id: any) => setPackets((prev) => prev.filter((x) => x.id !== id))}
             />
           )
         })}
